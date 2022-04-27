@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-include drf_user_activity_tracker/static *
+recursive-include drf_user_activity_tracker/templates *
+recursive-include docs *
