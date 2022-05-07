@@ -169,6 +169,25 @@ Make sure to migrate the database specified in DRF_ACTIVITY_TRACKER_DEFAULT_DATA
 """
 ```
 
+#### Using Mongodb database
+```shell script
+pip install pymongo==3.12.1 djongo
+```
+Add in Databases:
+```
+DATABASES = {
+    'db_name': {    # Default to "default"
+        'ENGINE': 'djongo',
+        'NAME': 'your-db-name'
+    }
+}
+```
+
+Make migrate on specefic database:
+```
+python manage.py migrate --database=db_name
+```
+
 ### Want to identify slow APIs? (Optional)
 You can also identify slow APIs by specifying `DRF_ACTIVITY_TRACKER_SLOW_API_ABOVE` in settings.py.
 

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: drf-user-activity-tracker
-Version: 1.0.0
+Version: 1.1.1
 Summary: A Django app to logs users activities.
 Home-page: https://github.com/bigmo94
 Author: Mohamad
@@ -189,6 +189,25 @@ Make sure to migrate the database specified in DRF_ACTIVITY_TRACKER_DEFAULT_DATA
 """
 ```
 
+#### Using Mongodb database
+```shell script
+pip install pymongo==3.12.1 djongo
+```
+Add in Databases:
+```
+DATABASES = {
+    'db_name': {    # Default to "default"
+        'ENGINE': 'djongo',
+        'NAME': 'your-db-name'
+    }
+}
+```
+
+Make migrate on specefic database:
+```
+python manage.py migrate --database=db_name
+```
+
 ### Want to identify slow APIs? (Optional)
 You can also identify slow APIs by specifying `DRF_ACTIVITY_TRACKER_SLOW_API_ABOVE` in settings.py.
 
@@ -324,5 +343,4 @@ DRF_ACTIVITY_TRACKER_EVENT_NAME = {
 After sometime, there will be too many data in the database. Searching and filter may get slower.
 If you want, you can delete or archive the older data.
 To improve the searching or filtering, try to add indexes in the 'drf_activity_log' table.
-
 
